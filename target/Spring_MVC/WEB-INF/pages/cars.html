@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>********* CARS ********</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <table>
+            <tr th:each = "car : ${cars}">
+                <td th:text="${car.getId()}">VALUE</td>
+                <td th:text="${car.getModel()}">VALUE</td>
+                <td th:text="${car.getEngine()}">VALUE</td>
+            </tr>
+        </table>
+  </div>
+</div>
+</body>
+</html>
