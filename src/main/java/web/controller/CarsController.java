@@ -8,22 +8,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.DAO.CarsDAO;
+import web.service.CarsService;
 
 @Controller
 @RequestMapping("/cars")
 public class CarsController {
-
-    private CarsDAO carsDAO;
-
     @Autowired
-    public CarsController(CarsDAO carsDAO) {
-        this.carsDAO = carsDAO;
-    }
+    private CarsService carsService;
 
     @GetMapping()
     public String fewCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
 
-        model.addAttribute("cars", carsDAO.carCount(count));
+        model.addAttribute("cars", carsService.carCount(count));
         return "cars";
     }
 }
